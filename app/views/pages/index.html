@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Danh Sách Người Dùng</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="display-4">Thực hành jquery với dự án quản lý trung tâm</header>
+        <!-- Phan tab menu -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" href="index.html" role="tab">Danh sách người
+                    dùng</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="DSKH.html" role="tab">Danh sách khóa học</a>
+            </li>
+          
+        </ul>
+        <br />
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!--Danh sách người dùng -->
+            <div role="tabpanel" class="tab-pane  in active" id="DanhSachNguoiDung">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm theo họ tên" id="TimKiemNguoiDung">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="button">Tìm kiếm</button>
+                    </span>
+                </div>
+                <div class="clear-fix"></div>
+                <br />
+                <button id="btnThemNguoiDung" data-toggle="modal" data-target="#myModal" class="btn btn-success">
+                    Thêm người dùng
+                    <i class="fa fa-plus"></i>
+                </button>
+                <button id="btnXoaNguoiDung" class="btn btn-danger">
+                    Xóa người dùng
+                    <i class="fa fa-trash"></i>
+                </button>
+                <div class="clear-fix"></div>
+                <br />
+                <div class="tblNguoiDung" id="tblNguoiDung">
+                    <table class="table">
+                        <thead>
+                            <th><input type="checkbox" class="checkAll"></th>
+                            <th>Tài khoản</th>
+                            <th>Mật khẩu</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Loại Người Dùng</th>
+                        </thead>
+                        <tbody id="tblDanhSachNguoiDung">
+
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+            </div>
+            <!-- Kết thúc danh sách người dùng -->
+            <!-- Danh sách khóa học -->
+
+            <!-- Kết thúc danh sách khóa học -->
+            <!-- Thống kê -->
+            <div role="tabpanel" class="tab-pane fade" id="ThongKe">
+            </div>
+            <!-- Kết thúc thống kê -->
+        </div>
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Thêm Người Dùng</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Tài khoản</label>
+                            <input id="TaiKhoan" type="text" class="form-control" placeholder="Nhập vào tài khoản">
+                            <span class="sp-thongbao" id="tbTK"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Mật khẩu</label>
+                            <input id="MatKhau" type="text" class="form-control" placeholder="Nhập vào mật khẩu" type="password">
+                            <span class="sp-thongbao" id="tbMK" style="display: none"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Họ tên</label>
+                            <input id="HoTen" type="text" class="form-control" placeholder="Nhập vào họ tên">
+                            <span class="sp-thongbao" id="tbHT" style="display: none"></span>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input id="Email" type="email" class="form-control" placeholder="Nhập vào Email">
+                            <span class="sp-thongbao" id="tbEmail" style="display: none"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <input id="SoDienThoai" type="number" class="form-control" placeholder="Nhập vào số điện thoại">
+                            <span class="sp-thongbao" id="tbSoDT" style="display: none"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Mã Loại Người Dùng</label>
+                            <select class="form-control" id="maLoaiNguoiDung">
+                                <option value="HV">Học Viên</option>
+                                <option value="GV">Giáo Vụ</option>
+                            </select>
+                            <span class="sp-thongbao" id="tbMLND" style="display: none"></span>
+
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button class="btn btn-success">Thêm Người Dùng</button>
+                        <button class="btn btn-secondary closeModal">Đóng</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script src="../../models/NguoiDung.js"></script>
+    <script src="../../models/DanhSachNguoiDung.js"></script>
+    <script src="../../../assets/js/validate.js"></script>
+    <script src="../../../assets/js/checkValidate.js"></script>
+    <script src="../../controllers/index.js"></script>
+</body>
+
+</html>

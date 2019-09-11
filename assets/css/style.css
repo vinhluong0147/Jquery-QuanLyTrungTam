@@ -1,0 +1,15 @@
+.trThongTinNguoiDung {
+    cursor: pointer;
+}
+
+.trThongTinNguoiDung:hover {
+    background: rgba(0, 0, 0, 0.1)
+}
+
+.trThongTinKH {
+    cursor: pointer;
+}
+
+.trThongTinKH:hover {
+    background: rgba(0, 0, 0, 0.1)
+}

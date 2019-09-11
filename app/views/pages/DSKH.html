@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Danh Sách Khóa Học</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="display-4">Thực hành jquery với dự án quản lý trung tâm</header>
+        <!-- Phan tab menu -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link " href="index.html" role="tab">Danh sách người
+                    dùng</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="DSKH.html" role="tab">Danh sách khóa học</a>
+            </li>
+           
+        </ul>
+        <br />
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!--Danh sách người dùng -->
+            <div role="tabpanel" class="tab-pane  in active" id="DanhSachKhoaHoc">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm theo họ tên" id="TimKiemKhoaHoc">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="button">Tìm kiếm</button>
+                    </span>
+                </div>
+                <div class="clear-fix"></div>
+                <br />
+                <button id="btnThemKhoaHoc" data-toggle="modal" data-target="#ModalKH" class="btn btn-success">
+                    Thêm Khóa Học
+                    <i class="fa fa-plus"></i>
+                </button>
+                <button id="btnXoaKhoaHoc" class="btn btn-danger">
+                    Xóa Khóa Học
+                    <i class="fa fa-trash"></i>
+                </button>
+                <div class="clear-fix"></div>
+                <br />
+                <div>
+                    <table class="table">
+                        <thead>
+                            <th><input type="checkbox" class="checkAllKH"></th>
+                            <th>Tên Khóa Học</th>
+                            <th>Mã Khóa Học</th>
+                            <th>Mô Tả</th>
+                            <th>Hình Ảnh</th>
+                            <th>Lượt Xem</th>
+                            <th>Người Tạo</th>
+                        </thead>
+                        <tbody id="tblKhoaHoc">
+
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+            </div>
+            <!-- Kết thúc danh sách người dùng -->
+            <!-- Danh sách khóa học -->
+
+            <!-- Kết thúc danh sách khóa học -->
+            <!-- Thống kê -->
+            <div role="tabpanel" class="tab-pane fade" id="ThongKe">
+            </div>
+            <!-- Kết thúc thống kê -->
+        </div>
+        <!-- The Modal -->
+        <div class="modal fade" id="ModalKH">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Thêm Khóa Học</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Tên Khóa Học</label>
+                            <input id="TenKH" type="text" class="form-control" placeholder="Nhập vào Tên Khóa Học">
+                            <span class="sp-thongbao" id="tbTen"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Mã Khóa Học</label>
+                            <input id="MaKH" type="text" class="form-control" placeholder="Nhập vào Mã Khóa Học">
+                            <span class="sp-thongbao" id="tbMa" style="display: none"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Mô Tả</label>
+                            <input id="MoTa" type="text" class="form-control" placeholder="Nhập vào Mô Tả">
+                            <span class="sp-thongbao" id="tbMoTa" style="display: none"></span>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Hình Ảnh</label>
+                            <input id="HinhAnh" type="email" class="form-control" placeholder="Nhập vào Hình Ảnh">
+                            <span class="sp-thongbao" id="tbHinhAnh" style="display: none"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Lượt Xem</label>
+                            <input id="LuotXem" type="number" class="form-control" placeholder="Nhập vào Lượt Xem">
+                            <span class="sp-thongbao" id="tbLuotXem" style="display: none"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Người Tạo</label>
+                            <select class="form-control" id="NguoiTao">
+                                
+                            </select>
+                            <span class="sp-thongbao" id="tbNguoiTao" style="display: none"></span>
+
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button class="btn btn-success">Thêm Người Dùng</button>
+                        <button class="btn btn-secondary closeModal">Đóng</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script src="../../models/KhoaHoc.js"></script>
+    <script src="../../models/DanhSachKhoaHoc.js"></script>
+    <script src="../../../assets/js/validate.js"></script>
+    <script src="../../../assets/js/checkValidate.js"></script>
+    <script src="../../services/KhoaHocService.js"></script>
+    <script src="../../services/NguoiDungService.js"></script>
+    <script src="../../controllers/DSKH.js"></script>
+</body>
+
+</html>
